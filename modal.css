@@ -17,7 +17,7 @@ body {
   background-image: url("background.png");
   font-family: var(--font-default);
   font-size: 18px;
-  max-width: 1300px;
+  /*max-width: 1300px;*/
   margin: 0 auto;
 }
 
@@ -563,7 +563,7 @@ color: #fff;
 padding-top: 10px;
 }
 
-.btn-thanks {
+.btnthanks {
 background: #fe142f;
 display: block;
 margin: 0 auto;

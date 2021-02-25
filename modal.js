@@ -42,8 +42,6 @@ closeModalBtn.addEventListener("click", function(event) {
 
 
 
-
-
 function validate() {
   modalbgThanks.style.display = "block";
 }

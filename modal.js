@@ -13,6 +13,8 @@ const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 const bground = document.querySelector(".bground");
 const closeModalBtn = document.querySelector(".close");
+const modalBtnSubmit= document.querySelectorAll(".btn-thanks");
+const modalbgThanks = document.querySelector(".bgroundthanks");
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -22,7 +24,6 @@ function launchModal() {
   modalbg.style.display = "block";
 }
 
-//close modal form
 
 // close modal event
 closeModalBtn.addEventListener("click", function(event) {
@@ -36,3 +37,12 @@ closeModalBtn.addEventListener("click", function(event) {
   }
 
 
+// launch modal Thanks
+
+modalBtnSubmit.forEach(function (btn) {
+    return btn.addEventListener("click", validate);
+  });
+
+function validate() {
+  modalbgThanks.style.display = "block";
+}

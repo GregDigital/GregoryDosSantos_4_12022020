@@ -11,6 +11,7 @@ function editNav() {
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
+const bground = document.querySelector(".bground");
 const closeModalBtn = document.querySelector(".close");
 // THANKS CONST
 const modalBtnSubmit= document.querySelectorAll(".btn-submit");
@@ -40,10 +41,6 @@ closeModalBtn.addEventListener("click", function(event) {
 // launch Thanks
 
 
-modalBtnSubmit.addEventListener("click", function(test) {
-  test.preventDefault ();
-  validate();
-  });
 
 
 

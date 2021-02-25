@@ -40,7 +40,11 @@ closeModalBtn.addEventListener("click", function(event) {
 
 // launch Thanks
 
-
+// close modal event
+modalBtnSubmit.addEventListener("click", function(event) {
+  event.preventDefault ();
+  validate();
+  });
 
 function validate() {
   modalbgThanks.style.display = "block";

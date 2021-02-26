@@ -14,8 +14,10 @@ const formData = document.querySelectorAll(".formData");
 const bground = document.querySelector(".bground");
 const closeModalBtn = document.querySelector(".close");
 // THANKS CONST
-const modalBtnSubmit= document.querySelectorAll(".btn-submit");
+const modalBtnSubmit= document.querySelector(".btn-submit");
 const modalbgThanks = document.querySelector(".bgroundthanks");
+const closeBtnThanks = document.querySelector(".closeThanks");
+const btnThanks = document.querySelector(".btnthanks")
 
 
 // launch modal event
@@ -36,6 +38,7 @@ closeModalBtn.addEventListener("click", function(event) {
   // close modal form
   function closeModal() {
     bground.style.display = "none";
+    
   }
 
 // launch Thanks
@@ -48,4 +51,22 @@ modalBtnSubmit.addEventListener("click", function(event) {
 
 function validate() {
   modalbgThanks.style.display = "block";
+  modalbg.style.display = "none";
 }
+
+// close modal event
+closeBtnThanks.addEventListener("click", function(event) {
+  event.preventDefault ();
+  closeModalThanks();
+  });
+
+  btnThanks.addEventListener("click", function(event) {
+    event.preventDefault ();
+    closeModalThanks();
+    });
+
+  // close modal form
+  function closeModalThanks() {
+    modalbgThanks.style.display = "none";
+    
+  }

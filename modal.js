@@ -88,12 +88,15 @@ if (!quantityElt.value.match(/^[0-9]+$/)){
   return false;
 };
 
-
-  if(!cityElt.value == 1) {
+let cityCheck = false;
+for (let city of cityElt) {  
+if (city.checked == true)
+{ cityCheck = true}
+}
+  if(!cityCheck) {
     alert("Merci de sélectionner une ville");
   return false;
   };
-
 
 
 if (!acceptCondition.checked) {

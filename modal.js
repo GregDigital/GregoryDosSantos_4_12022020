@@ -55,8 +55,7 @@ const acceptCondition = document.getElementById ("checkbox1")
 
 // REGEX ======================================================================================
 const emailFormat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
-const dateBirthday = /^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$/
-const numbers = /^[0-9]+$/
+
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -79,12 +78,12 @@ if (!emailFormat.test(eMail.value)) {
   return false;
 };
 
-if  (!birthDate.value.match(dateBirthday)) {
+if  (!birthDate.value.match(/^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$/)) {
   alert("Veuillez remplir votre date de naissance");
   return false;
 };
 
-if (!quantityElt.value.match(numbers)){
+if (!quantityElt.value.match(/^[0-9]+$/)){
   alert("Saisir un chiffre");
   return false;
 };

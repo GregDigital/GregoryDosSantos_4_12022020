@@ -13,12 +13,10 @@ const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 const bground = document.querySelector(".bground");
 const closeModalBtn = document.querySelector(".close");
-// THANKS CONST
-const modalBtnSubmit= document.querySelector(".btn-submit");
-const modalbgThanks = document.querySelector(".bgroundthanks");
-const closeBtnThanks = document.querySelector(".closeThanks");
-const btnThanks = document.querySelector(".btnthanks")
 
+
+
+// LANCER MODAL ========================================================================
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -28,6 +26,7 @@ function launchModal() {
   modalbg.style.display = "block";
 }
 
+//FERMETURE MODAL =======================================================================
 
 // close modal event
 closeModalBtn.addEventListener("click", function(event) {
@@ -41,19 +40,86 @@ closeModalBtn.addEventListener("click", function(event) {
     
   }
 
+
+// CONST VALIDATION FORMULAIRE =========================================================================
+
+const form = document.getElementById ('form');
+const errorFOrm = document.querySelector("formData");
+const firstName = document.getElementById ('first');
+const lastName = document.getElementById ('last');
+const eMail = document.getElementById ('email');
+const birthDate = document.getElementById ('birthdate');
+const quantityElt = document.getElementById ('quantity');
+const cityElt = document.querySelectorAll("input[type=radio]");
+const acceptCondition = document.getElementById ("checkbox1")
+
+// REGEX ======================================================================================
+const emailFormat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+const dateBirthday = /^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$/
+const numbers = /^[0-9]+$/
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+})
+
+function validate () {
+
+  if (!firstName.value.match(/(.*[a-z]){2}/i) || firstName.value == ' ' || firstName.value == null || firstName.value.length < 2){
+    errorFOrm.innerHTML = "Veuillez remplir le champ Prénom";
+    return false;
+  };
+ 
+ if ((!lastName.value.match(/(.*[a-z]){2}/i) || lastName.value == ' ' || lastName.value == null || lastName.value.length < 2)) {
+  alert ("Veuillez remplir le champ Nom");
+  return false;
+ };
+
+if (!emailFormat.test(eMail.value)) {
+  alert("Veuillez remplir une adresse mail valide");
+  return false;
+};
+
+if  (!birthDate.value.match(dateBirthday)) {
+  alert("Veuillez remplir votre date de naissance");
+  return false;
+};
+
+if (!quantityElt.value.match(numbers)){
+  alert("Saisir un chiffre");
+  return false;
+};
+
+
+  if(!cityElt.value == 1) {
+    alert("Merci de sélectionner une ville");
+  return false;
+  };
+
+
+
+if (!acceptCondition.checked) {
+  alert("Merci de lire et accepter les conditions");
+  return false;
+};
+
+
+
+} 
+
+
+/*
+// THANKS CONST
+const modalBtnSubmit= document.querySelector(".btn-submit");
+const modalbgThanks = document.querySelector(".bgroundthanks");
+const closeBtnThanks = document.querySelector(".closeThanks");
+const btnThanks = document.querySelector(".btnthanks")
+*/
+
 // launch Thanks
 
 // close modal event
-modalBtnSubmit.addEventListener("click", function(event) {
-  event.preventDefault ();
-  validate();
-  });
 
-function validate() {
-  modalbgThanks.style.display = "block";
-  modalbg.style.display = "none";
-}
-
+/*
 // close modal event
 closeBtnThanks.addEventListener("click", function(event) {
   event.preventDefault ();
@@ -70,3 +136,19 @@ closeBtnThanks.addEventListener("click", function(event) {
     modalbgThanks.style.display = "none";
     
   }
+
+
+
+    modalBtnSubmit.addEventListener("click", function(event) {
+      event.preventDefault ();
+      validate();
+      });
+    
+    function validate() {
+      modalbgThanks.style.display = "block";
+      modalbg.style.display = "none";
+    }
+  */
+
+
+

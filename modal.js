@@ -125,8 +125,7 @@ function validate() {
     mailElt = true;
   }
 
-  if (
-    !birthdayFormat.test(birthDate.value)) {
+  if (!birthDate.value.match(/^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$/)) {
     document.querySelector("#birthdayError.formData").setAttribute("data-error-visible", "true");
     document.querySelector("#birthdayError.formData").setAttribute("data-error", "Saisir une date de naissance *");
   }
@@ -173,6 +172,7 @@ function validate() {
   }
 
   else {
+    e.preventDefault()
     document.querySelector("#btnError.formDataBtn").setAttribute("data-error-visible", "true");
     document.querySelector("#btnError.formDataBtn").setAttribute("data-error", "Merci de compléter les champs obligatoires *");
     };

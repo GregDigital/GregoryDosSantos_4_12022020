@@ -208,13 +208,15 @@ input {
   font-size: 20px;
   height: 48px;
 }
+
+
 .formData[data-error]::after {
   content: attr(data-error);
-  font-size: 0.4em;
+  font-size: 0.6em;
   color: #e54858;
   display: block;
   margin-top: 7px;
-  margin-bottom: 7px;
+  margin-bottom: 15px;
   text-align: right;
   line-height: 0.3;
   opacity: 0;
@@ -229,9 +231,11 @@ input {
 
 input[data-error]::after {
     content: attr(data-error);
-    font-size: 0.4em;
+    font-size: 0.5em;
     color: red;
 } 
+
+
 .checkbox-label,
 .checkbox2-label {
   position: relative;

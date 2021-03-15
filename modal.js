@@ -53,6 +53,7 @@ const modalBtnSubmit= document.querySelector(".btn-submit");
 
 // REGEX ======================================================================================
 const emailFormat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+const birthdayFormat = /^((((0[13578])|([13578])|(1[02]))[\/](([1-9])|([0-2][0-9])|(3[01])))|(((0[469])|([469])|(11))[\/](([1-9])|([0-2][0-9])|(30)))|((2|02)[\/](([1-9])|([0-2][0-9]))))[\/]\d{4}$|^\d{4}$/
 
 // ERROR =====================
 
@@ -86,7 +87,7 @@ function validate() {
   ) {
     
     document.querySelector("#firstError.formData").setAttribute("data-error-visible", "true");
-    document.querySelector("#firstError.formData").setAttribute("data-error", "Saisir deux caractères minimum");
+    document.querySelector("#firstError.formData").setAttribute("data-error", "Saisir deux caractères minimum *");
     
   }
     else {
@@ -104,7 +105,7 @@ function validate() {
   ) {
     
     document.querySelector("#lastError.formData").setAttribute("data-error-visible", "true");
-    document.querySelector("#lastError.formData").setAttribute("data-error", "Saisir deux caractères minimum");
+    document.querySelector("#lastError.formData").setAttribute("data-error", "Saisir deux caractères minimum *");
   
   }
   
@@ -116,7 +117,7 @@ function validate() {
 
   if (!emailFormat.test(eMail.value)) {
     document.querySelector("#mailError.formData").setAttribute("data-error-visible", "true");
-    document.querySelector("#mailError.formData").setAttribute("data-error", "Saisir une Adresse mail valide");
+    document.querySelector("#mailError.formData").setAttribute("data-error", "Saisir une Adresse mail valide *");
    
   }
   else {
@@ -125,12 +126,9 @@ function validate() {
   }
 
   if (
-    !birthDate.value.match(
-      /^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$/
-    )
-  ) {
+    !birthdayFormat.test(birthDate.value)) {
     document.querySelector("#birthdayError.formData").setAttribute("data-error-visible", "true");
-    document.querySelector("#birthdayError.formData").setAttribute("data-error", "Saisir une date de naissance");
+    document.querySelector("#birthdayError.formData").setAttribute("data-error", "Saisir une date de naissance *");
   }
   else {
     document.querySelector("#birthdayError.formData").setAttribute("data-error-visible", "false");
@@ -138,7 +136,7 @@ function validate() {
 
   if (!quantityElt.value.match(/^[0-9]+$/)) {
     document.querySelector("#numberError.formData").setAttribute("data-error-visible", "true");
-    document.querySelector("#numberError.formData").setAttribute("data-error", "Saisir un chiffre");
+    document.querySelector("#numberError.formData").setAttribute("data-error", "Saisir un chiffre *");
   }
   else {
     document.querySelector("#numberError.formData").setAttribute("data-error-visible", "false");
@@ -152,7 +150,7 @@ function validate() {
   }
   if (!cityCheck) {
     document.querySelector("#cityError.formData").setAttribute("data-error-visible", "true");
-    document.querySelector("#cityError.formData").setAttribute("data-error", "Sélectionner une ville");
+    document.querySelector("#cityError.formData").setAttribute("data-error", "Sélectionner une ville *");
   }
   else {
     document.querySelector("#cityError.formData").setAttribute("data-error-visible", "false");
@@ -160,7 +158,7 @@ function validate() {
 
   if (!acceptCondition.checked) {
     document.querySelector("#acceptError.formData").setAttribute("data-error-visible", "true");
-    document.querySelector("#acceptError.formData").setAttribute("data-error", "Merci de lire et d'accepter les conditions");
+    document.querySelector("#acceptError.formData").setAttribute("data-error", "Merci de lire et d'accepter les conditions *");
    
   }
   else {
@@ -171,7 +169,14 @@ function validate() {
   if (firstElt == true && lastElt == true && mailElt  == true && BirthdayElt == true && quantElt == true && villeElt == true && acceptElt == true) {
   modalbg.style.display = "none"
     modalbgThanks.style.display = "block";
+    document.querySelector("#btnError.formDataBtn").setAttribute("data-error-visible", "false");
   }
+
+  else {
+    document.querySelector("#btnError.formDataBtn").setAttribute("data-error-visible", "true");
+    document.querySelector("#btnError.formDataBtn").setAttribute("data-error", "Merci de compléter les champs obligatoires *");
+    };
+
 }
 
 

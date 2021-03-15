@@ -235,6 +235,28 @@ input[data-error]::after {
     color: red;
 } 
 
+.formDataBtn[data-error]::after {
+  content: attr(data-error);
+  font-size: 0.6em;
+  color: #e54858;
+  display: block;
+  margin-top: 25px;
+  
+  text-align: center;
+  line-height: 0.3;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.formDataBtn[data-error-visible="true"]::after {
+  opacity: 1;
+}
+.formDataBtn[data-error-visible="true"] .text-control {
+  border: 2px solid #e54858;
+}
+
+
+
 
 .checkbox-label,
 .checkbox2-label {

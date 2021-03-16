@@ -52,8 +52,8 @@ const acceptCondition = document.getElementById("checkbox1");
 const modalBtnSubmit= document.querySelector(".btn-submit");
 
 // REGEX ======================================================================================
-const emailFormat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-const birthdayFormat = /^((((0[13578])|([13578])|(1[02]))[\/](([1-9])|([0-2][0-9])|(3[01])))|(((0[469])|([469])|(11))[\/](([1-9])|([0-2][0-9])|(30)))|((2|02)[\/](([1-9])|([0-2][0-9]))))[\/]\d{4}$|^\d{4}$/
+const emailFormat = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+const birthdayFormat = /^((((0[13578])|([13578])|(1[02]))[\/](([1-9])|([0-2][0-9])|(3[01])))|(((0[469])|([469])|(11))[\/](([1-9])|([0-2][0-9])|(30)))|((2|02)[\/](([1-9])|([0-2][0-9]))))[\/]\d{4}$|^\d{4}$/;
 
 // ERROR =====================
 
@@ -64,13 +64,13 @@ const birthdayFormat = /^((((0[13578])|([13578])|(1[02]))[\/](([1-9])|([0-2][0-9
 // CONFIRMATION VALIDATION  =======================================================
 
 
-let firstElt;
-let lastElt;
-let mailElt;
-let BirthdayElt;
-let quantElt;
-let villeElt;
-let acceptElt;
+let firstElt = false;
+let lastElt = false;
+let mailElt = false;
+let BirthdayElt = false;
+let quantElt = false;
+let villeElt = false;
+let acceptElt = false;
 
 
 form.addEventListener("submit", (e) => {
@@ -164,18 +164,18 @@ function validate() {
     document.querySelector("#acceptError.formData").setAttribute("data-error-visible", "false");
     acceptElt = true};
 
-
-  if (firstElt == true && lastElt == true && mailElt  == true && BirthdayElt == true && quantElt == true && villeElt == true && acceptElt == true) {
-  modalbg.style.display = "none"
+ 
+if (acceptElt === true && firstElt === true && lastElt === true && mailElt  === true && BirthdayElt === true && quantElt === true && villeElt === true ) {
+  modalbg.style.display = "none";
     modalbgThanks.style.display = "block";
-    document.querySelector("#btnError.formDataBtn").setAttribute("data-error-visible", "false");
+   // document.querySelector("#btnError.formDataBtn").setAttribute("data-error-visible", "false");
   }
 
-  else {
-    e.preventDefault()
-    document.querySelector("#btnError.formDataBtn").setAttribute("data-error-visible", "true");
-    document.querySelector("#btnError.formDataBtn").setAttribute("data-error", "Merci de compléter les champs obligatoires *");
-    };
+//  else {
+    
+  //  document.querySelector("#btnError.formDataBtn").setAttribute("data-error-visible", "true");
+ //   document.querySelector("#btnError.formDataBtn").setAttribute("data-error", "Merci de compléter les champs obligatoires *");
+ //   };
 
 }
 
@@ -209,5 +209,22 @@ function closeModalThanks() {
 
 //=======================================================================================
 
+// FUNCTION CORRECTION TITLE H1 WITH BR
 
+let addBr = document.querySelector("h1.hero-headline")
+let changeScreen = window.matchMedia('(max-width: 940px)');
+
+function screenTest(e) {
+  if (e.matches) {
+    /* the viewport is 600 pixels wide or less */
+     addBr.innerHTML='Marathon <br> national <br>de jeux vidéos'
+   
+  } else {
+    /* the viewport is more than than 600 pixels wide */
+    addBr.innerHTML='Marathon national <br>de jeux vidéos'
+    
+  }
+}
+
+changeScreen.addEventListener('change', screenTest);
 

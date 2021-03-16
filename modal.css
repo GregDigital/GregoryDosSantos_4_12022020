@@ -97,7 +97,7 @@ img {
   .topnav a.icon {
     float: right;
     display: block;
-    margin-top: -15px;
+   
   }
 } 
 
@@ -488,6 +488,7 @@ input[data-error]::after {
   height: 100%;
   display: block;
   padding: 0;
+  object-fit: cover; /*modif */
 }
 .copyrights {
   color: #fe142f;
@@ -513,6 +514,7 @@ footer {
     background: #fff;
     color: #000;
     padding: 20px;
+    min-width: 0px; /* modif*/
   }
   .hero-content::after {
     content: unset;
@@ -542,6 +544,14 @@ footer {
     text-align: center;
   }
 }
+
+@media screen and (max-width: 400px) {   /* modif */
+  .hero-headline {
+    font-size: 3.5rem;  
+    white-space: normal;
+}
+}
+
 
 @keyframes modalopen {
   from {
